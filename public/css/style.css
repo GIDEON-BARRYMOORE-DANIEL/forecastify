@@ -1,0 +1,50 @@
+body{
+    /* background-color: aqua; */
+    padding:0px;
+    margin: 0px;
+   
+}
+
+.background{
+    background: url("/images/pic.jpg");
+    width:100%;
+    height:100vh;
+    object-fit: cover;
+    background-repeat: repeat-x;
+  background-size: 200% 100%;
+  animation: moveBg 250s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes moveBg {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+}
+
+.searchInput-div {
+    width: 550px;
+    height: 55px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput-div input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    
+  }
+
