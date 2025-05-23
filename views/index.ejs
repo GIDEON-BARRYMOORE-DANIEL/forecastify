@@ -10,9 +10,18 @@
     <div class="background">
         <form action="" method="post">
             <div class="searchInput-div">
-               <input type="text" placeholder="Search your Address, City or Zip Code">
+               <input type="text" placeholder="Search your Address, City or Zip Code" name="searchInput">
+               <input type="submit" value="submit">
             </div>
-        </form>
+        </form> <br>
+
+        <div style="color: #fff;"> <h1>Location Info</h1>
+            <p>City: <%= content.name %></p>
+            <p>Latitude: <%= content.lat %></p>
+            <p>Longitude: <%= content.lon %></p>
+            <p>Country: <%= content.country %></p>
+            <p>State: <%= content.state || 'N/A' %></p>
+        </div>
 
     </div>
 </body>
