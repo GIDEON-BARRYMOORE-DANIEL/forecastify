@@ -8,7 +8,7 @@ body{
 .background{
     background: url("/images/pic.jpg");
     width:100%;
-    height:100vh;
+    height:120vh;
     object-fit: cover;
     background-repeat: repeat-x;
   background-size: 200% 100%;
@@ -31,21 +31,75 @@ body{
 .searchInput-div {
     width: 550px;
     height: 55px;
-    background-color: #f0f0f0;
+    background-color: #fff5ee;
     border-radius: 15px;
     display: flex;
     align-items: center;
     padding: 0 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    gap:55px;
 }
 
 .searchInput-div input {
-    width: 100%;
+    width: 70%;
     border: none;
-    background: transparent;
+    background: transparent ;                                 
     outline: none;
     font-size: 16px;
     color: #333;
     
   }
+
+  .searchInput-div .submitButton{
+    background-color: peru;
+    width:120px;
+    height:45px;
+    border-radius: 10px;
+    cursor:pointer;
+
+  }
+
+  .temp_info{
+    color: #fff;
+    font-weight: bold;
+     display: flex; 
+     justify-content: center; 
+     align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+  }
+
+  .location_info{
+    color: #fff;
+     font-weight: bold;
+     display: flex; 
+     justify-content: center;
+      align-items: center;
+       flex-direction: column;
+       /* background-color: aquamarine; */
+  }
+
+  .forecast_section {
+    margin-top: 10px;
+    color: #fff;
+    /* background-color: aquamarine; */
+   
+    
+  }
+  
+  .forecast_grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .forecast_card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    
+    text-align: center;
+  }
+  
 

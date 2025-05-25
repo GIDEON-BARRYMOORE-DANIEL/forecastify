@@ -11,17 +11,56 @@
         <form action="" method="post">
             <div class="searchInput-div">
                <input type="text" placeholder="Search your Address, City or Zip Code" name="searchInput">
-               <input type="submit" value="submit">
+               <input type="submit" value="submit" class="submitButton">
             </div>
-        </form> <br>
+        </form> 
+        <% if(!weather){%>
+            <p style="color:#fff">No weather data available yet.</p> 
+      
+        <% } else if(weather && weather.main) { %>
+            <div class="temp_info"> <h1 style="color:peru;">Temperature Info</h1>
+                <span> Temperature : <%= weather.main.temp %>°C</span>
+                <p>Description:  <%= weather.weather[0].description %></p>
+                <span><img src="https://openweathermap.org/img/wn/<%= weather.weather[0].icon %>@2x.png" alt="Weather Icon"></span> 
+            </div>
+            <div class="location_info"> <h1 style="color:peru;">Location Info</h1>
+                <span>City: <%= content.name %></span>
+                <!-- <span>Latitude:  // content.lat %></span> -->
+                <!-- <p>Longitude:  //content.lon %></p> -->
+                <p>Country: <%= content.country %></p>
+                <span>State: <%= content.state || 'N/A' %></span>
+            </div>
+        <% } %>
+        <% if (forecast && forecast.list) { %>
+            <div class="forecast_section">
+              <h1 style="color:peru;">5-Day Forecast</h1>
+                <div class="forecast_grid">
+                    <% 
+                    const dailyMap = {};
+                    forecast.list.forEach(item => {
+                        const date = item.dt_txt.split(" ")[0];
+                        if (!dailyMap[date]) {
+                        dailyMap[date] = item;
+                        }
+                    });
+        
+                    Object.keys(dailyMap).slice(0, 5).forEach(date => {
+                        const item = dailyMap[date];
+                    %>
+                    <div class="forecast_card">
+                        <h3 style="color:peru;"><%= new Date(item.dt_txt).toDateString() %></h3>
+                        <p><%= item.weather[0].description %></p>
+                        <p>Temp: <%= item.main.temp %>°C</p>
+                        <img src="https://openweathermap.org/img/wn/<%= item.weather[0].icon %>@2x.png" alt="Weather Icon">
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %>
+      
+     
+        
 
-        <div style="color: #fff;"> <h1>Location Info</h1>
-            <p>City: <%= content.name %></p>
-            <p>Latitude: <%= content.lat %></p>
-            <p>Longitude: <%= content.lon %></p>
-            <p>Country: <%= content.country %></p>
-            <p>State: <%= content.state || 'N/A' %></p>
-        </div>
 
     </div>
 </body>
