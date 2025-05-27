@@ -1,31 +1,39 @@
-body{
-    /* background-color: aqua; */
-    padding:0px;
+body {
+    padding: 0px;
     margin: 0px;
-   
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.background{
+.background {
     background: url("/images/pic.jpg");
-    width:100%;
-    height:120vh;
+    width: 100%;
+    height: 120vh;
     object-fit: cover;
     background-repeat: repeat-x;
-  background-size: 200% 100%;
-  animation: moveBg 250s linear infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    background-size: 200% 100%;
+    animation: moveBg 250s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @keyframes moveBg {
     0% {
-      background-position: 0 0;
+        background-position: 0 0;
     }
     100% {
-      background-position: 100% 0;
+        background-position: 100% 0;
     }
+}
+
+.background .content-body {
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px;
 }
 
 .searchInput-div {
@@ -37,69 +45,309 @@ body{
     align-items: center;
     padding: 0 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    gap:55px;
+    gap: 55px;
 }
 
 .searchInput-div input {
     width: 70%;
     border: none;
-    background: transparent ;                                 
+    background: transparent;
     outline: none;
     font-size: 16px;
     color: #333;
-    
-  }
+}
 
-  .searchInput-div .submitButton{
+.searchInput-div .submitButton {
     background-color: peru;
-    width:120px;
-    height:45px;
+    width: 120px;
+    height: 45px;
     border-radius: 10px;
-    cursor:pointer;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
 
-  }
-
-  .temp_info{
+.temp_info {
     color: #fff;
     font-weight: bold;
-     display: flex; 
-     justify-content: center; 
-     align-items: center;
-      flex-direction: column;
-      margin-top: 20px;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
 
-  .location_info{
+.location_info {
     color: #fff;
-     font-weight: bold;
-     display: flex; 
-     justify-content: center;
-      align-items: center;
-       flex-direction: column;
-       /* background-color: aquamarine; */
-  }
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-  .forecast_section {
+.forecast_section {
     margin-top: 10px;
     color: #fff;
-    /* background-color: aquamarine; */
-   
-    
-  }
-  
-  .forecast_grid {
+}
+
+.forecast_grid {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-  }
-  
-  .forecast_card {
+    justify-content: center;
+}
+
+.forecast_card {
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
     border-radius: 10px;
     width: 150px;
-    
     text-align: center;
-  }
-  
+}
 
+/* TABLET MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+    .background {
+        min-height: 100vh;
+        height: auto;
+        background-size: 300% 100%;
+        background-attachment: fixed;
+    }
+
+    .background .content-body {
+        min-height: 100vh;
+        height: auto;
+        padding: 20px 15px;
+    }
+
+    .searchInput-div {
+        width: 90%;
+        max-width: 450px;
+        height: 50px;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .searchInput-div input {
+        width: 65%;
+        font-size: 14px;
+    }
+
+    .searchInput-div .submitButton {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .temp_info, .location_info {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .forecast_grid {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .forecast_card {
+        width: 130px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .forecast_section h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+/* MOBILE MEDIA QUERIES */
+@media screen and (max-width: 480px) {
+    .background {
+        min-height: 100vh;
+        height: auto;
+        background-size: 400% 100%;
+        padding: 10px 0;
+        background-attachment: fixed;
+    }
+
+    .background .content-body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 10px 40px 10px;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    .searchInput-div {
+        width: 95%;
+        height: 45px;
+        gap: 10px;
+        padding: 0 10px;
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    .searchInput-div input {
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .searchInput-div .submitButton {
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .temp_info, .location_info {
+        margin-top: 20px;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .temp_info h1, .location_info h1 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .temp_info span, .temp_info p,
+    .location_info span, .location_info p {
+        font-size: 14px;
+        margin: 5px 0;
+        display: block;
+    }
+
+    .forecast_section {
+        margin-top: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .forecast_section h1 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .forecast_grid {
+        gap: 10px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forecast_card {
+        width: 90%;
+        max-width: 280px;
+        padding: 15px;
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .forecast_card h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .forecast_card p {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .forecast_card img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* SMALL MOBILE MEDIA QUERIES */
+@media screen and (max-width: 320px) {
+    .background .content-body {
+        padding: 15px 5px;
+        padding-top: 30px;
+    }
+
+    .searchInput-div {
+        width: 98%;
+        padding: 12px;
+    }
+
+    .searchInput-div input {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .searchInput-div .submitButton {
+        height: 35px;
+        font-size: 13px;
+    }
+
+    .temp_info h1, .location_info h1,
+    .forecast_section h1 {
+        font-size: 1.1rem;
+    }
+
+    .temp_info span, .temp_info p,
+    .location_info span, .location_info p {
+        font-size: 13px;
+    }
+
+    .forecast_card {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .forecast_card h3 {
+        font-size: 0.9rem;
+    }
+
+    .forecast_card p {
+        font-size: 13px;
+    }
+
+    .forecast_card img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* LARGE DESKTOP MEDIA QUERIES */
+@media screen and (min-width: 1200px) {
+    .searchInput-div {
+        width: 600px;
+        height: 60px;
+        gap: 60px;
+    }
+
+    .searchInput-div input {
+        font-size: 18px;
+    }
+
+    .searchInput-div .submitButton {
+        width: 130px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .forecast_grid {
+        gap: 25px;
+    }
+
+    .forecast_card {
+        width: 170px;
+        padding: 15px;
+    }
+
+    .temp_info, .location_info {
+        font-size: 18px;
+    }
+}
