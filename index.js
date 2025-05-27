@@ -1,11 +1,13 @@
 import express from "express";
 import axios from "axios";
-import bodyParser from "body-parser";
+import bodyParser from "body-parser"; // can remove this if you don't use it explicitly
 import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const apikey = process.env.API_KEY;
+console.log("PORT:", process.env.PORT);
+console.log("API_KEY:", process.env.API_KEY);
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
@@ -24,7 +26,7 @@ app.post("/", async(req, res)=>{
             params:{
                 q: searchInput,  // clients searched location 
                 limit: 1,  // limit means number of same name location to be shown on the api call
-                appid: apiKey, // appid holding your api key for authorization
+                appid: apikey, // appid holding your api key for authorization
 
             }
 
@@ -41,7 +43,7 @@ app.post("/", async(req, res)=>{
                     lat, //passed in the longitutude 
                     lon, //passed in the latitude
                     units: "metric", // units i wanted in kent
-                    appid: apiKey, // my api key was required as usual for aauthorisation
+                    appid: apikey, // my api key was required as usual for aauthorisation
 
                 }
             });
@@ -52,7 +54,7 @@ app.post("/", async(req, res)=>{
                     lat,
                     lon,
                     units: "metric",
-                    appid: apiKey
+                    appid: apikey,
                 }
             });
            
