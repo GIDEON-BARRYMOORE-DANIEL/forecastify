@@ -1,15 +1,17 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
-
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const apikey = process.env.API_KEY;
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
-const apiKey = "3c8079c615399d398df5262fc50405d7";
+
 
 app.get("/", (req,res)=>{
     res.render("index.ejs", {content: "", weather: "", forecast: ""});
