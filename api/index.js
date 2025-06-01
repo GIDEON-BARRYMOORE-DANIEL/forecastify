@@ -9,7 +9,7 @@ const apikey = process.env.API_KEY;
 console.log("PORT:", process.env.PORT);
 console.log("API_KEY:", process.env.API_KEY);
 app.set("view engine", "ejs");
-app.set("views", "./views");
+app.set("views", "../views");
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
