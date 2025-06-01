@@ -18,9 +18,14 @@ app.use(express.static(path.join(rootDir, 'public')));
 app.use(express.urlencoded({extended: true}));
 
 
-app.get("/", (req,res)=>{
-    res.render("index", {content: "", weather: "", forecast: ""});
-})
+// app.get("/", (req,res)=>{
+//     res.render("index", {content: "", weather: "", forecast: ""});
+// })
+
+
+app.get('/', (req, res) => {
+    res.send("hello index");
+  });
 
 app.post("/", async(req, res)=>{
     const searchInput = req.body.searchInput;
