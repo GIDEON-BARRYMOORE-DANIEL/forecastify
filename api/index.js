@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.get("/", (req,res)=>{
-    res.render("index.ejs", {content: "", weather: "", forecast: ""});
+    res.render("index", {content: "", weather: "", forecast: ""});
 })
 
 app.post("/", async(req, res)=>{
