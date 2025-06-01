@@ -2,16 +2,19 @@ import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser"; // can remove this if you don't use it explicitly
 import dotenv from 'dotenv';
+import path from "path";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const apikey = process.env.API_KEY;
 console.log("PORT:", process.env.PORT);
 console.log("API_KEY:", process.env.API_KEY);
-app.set("view engine", "ejs");
-app.set("views", "../views");
 
-app.use(express.static("public"));
+const rootDir = process.cwd();
+app.set('views', path.join(rootDir, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(rootDir, 'public')));
 app.use(express.urlencoded({extended: true}));
 
 
